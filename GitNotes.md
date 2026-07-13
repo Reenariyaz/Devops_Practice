@@ -1,4 +1,4 @@
-\*\*\*\*\*Day-02:\*\*\*
+## **\*\*\*\*\*Day-02:\*\*\***
 
 *What is GIT?*\*\*
 Git is a distributed version control system that tracks changes in source code and files, allowing multiple developers to collaborate and maintain the complete history of a project.
@@ -74,7 +74,7 @@ Works offline	                          Requires internet for syncing
 
 
 
-**\*\*\*Day-03:\*\*\***
+## **\*\*\*Day-03:\*\*\***
 
 
 
@@ -173,4 +173,12 @@ Exact lines added and removed
 if we dont give commit id, git log and git show might works the same.
 
 **git Push-** Pushes the changes (snaped changes) from local to the remote(GITHUB).
+
+
+
+
+
+## **\*\*\*DAY-04\*\*\***
+
+
 
