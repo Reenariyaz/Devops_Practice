@@ -180,5 +180,195 @@ if we dont give commit id, git log and git show might works the same.
 
 ## **\*\*\*DAY-04\*\*\***
 
+**# Branches**
+
+
+
+**## What is a Branch?**
+
+
+
+A branch is an independent line of development in Git. It allows developers to work on new features, bug fixes, or experiments without affecting the main project. Each branch has its own commit history.
+
+
+
+\---
+
+
+
+**## Why do We Use Branches?**
+
+
+
+Branches are used to:
+
+\- Develop new features safely.
+
+\- Fix bugs without affecting the stable code.
+
+\- Allow multiple developers to work on the same project simultaneously.
+
+\- Test new changes before adding them to the main branch.
+
+
+
+**---**
+
+
+
+**## Difference Between `main` and a Feature Branch**
+
+
+
+| Main Branch | Feature Branch |
+
+|-------------|----------------|
+
+| Contains stable and tested code. | Used to develop a specific feature or fix. |
+
+| Represents the production-ready version of the project. | May contain unfinished work. |
+
+| Developers usually avoid making direct changes. | Developers make changes and commit their work here. |
+
+| Receives changes only after testing and code review. | Merged into `main` after the work is completed. |
+
+
+
+**---**
+
+
+
+**## Benefits of Branching**
+
+
+
+\- Keeps the `main` branch stable.
+
+\- Allows multiple developers to work independently.
+
+\- Makes collaboration easier.
+
+\- Prevents unfinished features from affecting production.
+
+\- Makes testing and code reviews easier before merging.
+
+
+
+**---**
+
+
+
+**## Common Git Branch Commands**
+
+
+
+\### View all local branches
+
+
+
+```bash
+
+git branch
+
+```
+
+
+
+\### Create a new branch
+
+
+
+```bash
+
+git branch feature-login
+
+```
+
+
+
+\### Create and switch to a new branch
+
+
+
+```bash
+
+git switch -c feature-login
+
+```
+
+
+
+\### Switch to an existing branch
+
+
+
+```bash
+
+git switch feature-login
+
+```
+
+
+
+\### (Older command) Switch branches
+
+
+
+```bash
+
+git checkout feature-login
+
+```
+
+
+
+\### Show commit history
+
+
+
+```bash
+
+git log --oneline
+
+```
+
+
+
+\### Push a branch to GitHub
+
+
+
+```bash
+
+git push -u origin feature-login
+
+```
+
+
+
+\---
+
+
+
+**## Practical Observation**
+
+
+
+When I created the `feature-notes` branch, Git did not create another copy of the project. Instead, it created a new pointer to the current commit.
+
+
+
+When I switched from `feature-notes` to `main`, the changes I made disappeared because `main` was pointing to an older commit.
+
+
+
+When I switched back to `feature-notes`, the changes reappeared because that branch pointed to the newer commit containing my work.
+
+
+
+This helped me understand that each branch has its own commit history, and Git updates the working directory based on the branch I switch to.
+
+
+
 
 
