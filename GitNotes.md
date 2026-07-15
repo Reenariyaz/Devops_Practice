@@ -369,52 +369,350 @@ When I switched back to `feature-notes`, the changes reappeared because that bra
 This helped me understand that each branch has its own commit history, and Git updates the working directory based on the branch I switch to.
 
 
-##DAY05##
+1. Git Merge
 
-Git Merge - combining changes that implemented in one branch to other branch
-syntax- git merge <branch name to be merged>
+Git Merge is the process of combining changes from one branch into another branch.
 
-Why do we merge branches - as to avoid the breakage of application, allows multiple developers work independently on new features and bug fixes, helps reviewers in reviewing the code.
+Most commonly:
 
-Fast-Forward Merge - when there is no commits on main branch, till the merging branch commits then the main branch points to the new branch instead of new branch combining to the main branch.
+feature branch
+        │
+        ▼
+      git merge
+        │
+        ▼
+main branch
 
-Merge Conflict-  this conflict occurs when changes are made on same file or feature differently by multiple developers 
+It is used after completing a feature.
 
-We can resolve merge conflict- 
- merge the changes
- open conflicted file
- remove the conflict markers (<<<<<, ========, <<<<<<<)
- keep the required code
- save the file
- stage the file
- commit the changes
+2. Why do we use Merge?
 
-Common git merge commands:
-git merge <branch name>
+Instead of every developer working directly on the main branch:
+
+Developers create their own feature branches.
+Work independently.
+Test their changes.
+Review the code.
+Merge only after everything works correctly.
+
+Benefits:
+
+Keeps the main branch stable.
+Prevents breaking the application.
+Makes collaboration easier.
+Makes code reviews possible.
+3. Fast-Forward Merge
+
+A Fast-Forward Merge happens when:
+
+No new commits were added to the main branch after creating the feature branch.
+
+Instead of creating another commit, Git simply moves the main branch pointer forward.
+
+Example:
+
+Before
+
+main
+ │
+A ---- B
+
+feature
+        │
+        C
+
+After
+
+main
+        │
+A ---- B ---- C
+Important Point
+
+A Fast-Forward Merge does not create a new merge commit.
+
+Git simply updates the branch pointer.
+
+4. Merge Conflict
+
+A Merge Conflict happens when:
+
+Two branches modify the same line of the same file differently.
+
+Git cannot decide which version is correct.
+
+So Git stops the merge and asks the developer to resolve it manually.
+
+5. Conflict Markers
+
+Git inserts markers like:
+
+<<<<<<< HEAD
+Current branch changes
+=======
+Incoming branch changes
+>>>>>>> feature_branch
+
+Meaning:
+
+HEAD
+
+→ Current branch (main)
+
+=======
+
+→ Separator
+
+>>>>>>> feature_branch
+
+→ Incoming changes
+
+The developer removes these markers after deciding what the final content should be.
+
+Steps to Resolve a Merge Conflict
+Merge the branch.
+Git reports the conflict.
+Open the conflicted file.
+Find the conflict markers.
+Decide which code to keep.
+Remove all markers.
+Save the file.
+Stage the file.
+git add hello.txt
+Commit
+git commit -m "Resolved merge conflict"
+Commands Learned
+git merge <branch>
+
+Merge another branch into the current branch.
+
+git switch main
+
+Switch to the main branch.
+
 git status
 
-git merge Architecture- 
+Shows merge status and conflicts.
 
-create a new branch
-work on the branch and commit
-switch to main branch
-merge the branch
-resolve the merge conflict (if any)
-commit 
-push
+git log --oneline --graph
 
+Shows commit history as a graph.
 
-Real-World Example
+git push origin main
 
-Imagine three developers working on an online banking application:
+Push local changes to GitHub.
 
-Developer A → Login feature
+Practical Knowledge I Gained Today
+✅ I successfully performed a Fast-Forward Merge locally.
+
+Git displayed:
+
+Fast-forward
+
+Meaning:
+
+The merge happened successfully without creating another commit.
+
+I learned why Git said
+nothing to commit
+
+Initially I thought I needed another commit.
+
+Later I understood:
+
+A Fast-Forward Merge does not create a new commit because the latest commit already exists in the feature branch.
+
+Git only moves the branch pointer.
+
+I got a Push Rejected Error
+
+Git displayed:
+
+Updates were rejected because the remote contains work that you do not have locally.
+Why?
+
+I had already merged the branch on GitHub using Compare & Pull Request.
+
+GitHub created a merge commit.
+
+My local repository did not yet have that commit.
+
+Therefore Git rejected the push.
+
+Important Lesson
+
+There are two ways to merge branches.
+
+Method 1
+
+Local Merge
+
+git switch main
+git merge feature_branch
+git push origin main
+
+Everything happens on my computer.
+
+Method 2
+
+GitHub Pull Request
+
+Push feature branch
+      ↓
+Create Pull Request
+      ↓
+Code Review
+      ↓
+Merge on GitHub
+      ↓
+git pull origin main
+
+This is the workflow used by most companies because it supports:
+
+Code Reviews
+CI/CD
+Team Approval
+Merge History
+Difference I Learned
+Local Merge	GitHub Pull Request
+Uses git merge command	Uses Compare & Pull Request
+Happens on local machine	Happens on GitHub
+Mostly for learning/small projects	Used in professional teams
+No review process	Includes code review before merging
+
+###DAY06###
+1. What is a Remote Repository?
+
+A remote repository is a Git repository hosted on a remote server (e.g., GitHub, GitLab, Bitbucket).
+
+It allows developers to:
+
+Share code
+Collaborate with team members
+Backup projects
+Access the project from anywhere
+Example
+Local Repository (Laptop)
+          │
+      git push
+          ▼
+GitHub (Remote Repository)
+          ▲
+      git pull
+          │
+2. Local Repository vs Remote Repository
+Local Repository	Remote Repository
+Stored on your computer	Stored on GitHub
+Used for development	Used for collaboration
+Can work offline	Internet required to sync
+Contains your local commits	Contains shared project history
+3. What is origin?
+
+origin is the default name Git gives to the remote repository.
+
+Check your remote:
+
+git remote -v
+
+Example:
+
+origin  https://github.com/username/Devops_Practice.git (fetch)
+origin  https://github.com/username/Devops_Practice.git (push)
+4. git push
+
+Uploads your local commits to the remote repository.
+
+Syntax
+git push origin main
+
+Example:
+
+Laptop
+     │
+git push
+     ▼
+GitHub
+5. git pull
+
+Downloads the latest changes from the remote repository and merges them into your local branch.
+
+Syntax
+git pull origin main
+
+Example:
+
+GitHub
+     │
+git pull
+     ▼
+Laptop
+6. git clone
+
+Copies an existing remote repository to your computer.
+
+Syntax
+git clone <repository-url>
+
+Example:
+
+git clone https://github.com/reena/Devops_Practice.git
+
+Git creates a complete copy of the repository, including its history.
+
+7. Basic Git Collaboration Workflow
+Developer
+     │
+Modify files
+     │
+git add
+     │
+git commit
+     │
+git push
+     ▼
+GitHub
+     ▲
+git pull
+     │
+Other Developers
+8. Common Commands
+git remote -v
+
+Shows configured remote repositories.
+
+git push origin main
+
+Uploads local commits.
+
+git pull origin main
+
+Downloads latest changes.
+
+git clone <url>
+
+Copies a remote repository.
+
+git remote show origin
+
+Displays detailed information about the remote.
+
+🌍 Real-Time Example
+
+Suppose three developers are working on the same project:
+
+Developer A → Login Module
 Developer B → Dashboard
-Developer C → Loan module
+Developer C → Payment Module
 
-Each developer creates a separate feature branch and works independently. Once a feature is complete, it is reviewed and merged into the main branch. If two developers modify the same part of a file, Git raises a merge conflict, which is resolved before deployment. After successful merging, the CI/CD pipeline builds, tests, and deploys the application.
+Workflow:
 
+Developer A
+        │
+git push
+        ▼
+GitHub
+        ▲
+git pull
+        │
+Developer B
 
-
-
-
+This ensures everyone works with the latest version of the project.

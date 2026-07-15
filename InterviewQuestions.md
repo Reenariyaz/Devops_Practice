@@ -236,3 +236,55 @@ The staging area gives developers control over what goes into a commit. It allow
 
 
 
+1\. What is a remote repository?
+
+
+
+A remote repository is a Git repository hosted on a server (such as GitHub) that allows developers to collaborate and share code.
+
+
+
+2\. What is the difference between git push and git pull?
+
+git push uploads local commits to the remote repository.
+
+git pull downloads and merges the latest changes from the remote repository into the local repository.
+
+3\. What is git clone?
+
+
+
+git clone creates a complete copy of an existing remote repository on your local machine.
+
+
+
+4\. What is origin?
+
+
+
+origin is the default name given to the remote GitHub repository.
+
+
+
+5\. Why do companies use GitHub?
+
+
+
+Companies use GitHub to:
+
+
+
+Collaborate on code
+
+Store repositories
+
+Review code through Pull Requests
+
+Track issues
+
+Integrate CI/CD pipelines
+
+Maintain version history
+
+
+
