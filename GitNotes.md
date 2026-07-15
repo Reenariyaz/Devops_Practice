@@ -268,7 +268,7 @@ Branches are used to:
 
 ```bash
 
-git branch
+git branch - will say which branch u r working
 
 ```
 
@@ -280,7 +280,7 @@ git branch
 
 ```bash
 
-git branch feature-login
+git branch feature-login (only to switch to the already created branch)
 
 ```
 
@@ -292,7 +292,7 @@ git branch feature-login
 
 ```bash
 
-git switch -c feature-login
+git switch -c feature-login (to create a branch for the first time)
 
 ```
 
@@ -328,7 +328,7 @@ git checkout feature-login
 
 ```bash
 
-git log --oneline
+git log --oneline  (shows the commit history in single line along with @Head and message)
 
 ```
 
@@ -367,6 +367,52 @@ When I switched back to `feature-notes`, the changes reappeared because that bra
 
 
 This helped me understand that each branch has its own commit history, and Git updates the working directory based on the branch I switch to.
+
+
+##DAY05##
+
+Git Merge - combining changes that implemented in one branch to other branch
+syntax- git merge <branch name to be merged>
+
+Why do we merge branches - as to avoid the breakage of application, allows multiple developers work independently on new features and bug fixes, helps reviewers in reviewing the code.
+
+Fast-Forward Merge - when there is no commits on main branch, till the merging branch commits then the main branch points to the new branch instead of new branch combining to the main branch.
+
+Merge Conflict-  this conflict occurs when changes are made on same file or feature differently by multiple developers 
+
+We can resolve merge conflict- 
+ merge the changes
+ open conflicted file
+ remove the conflict markers (<<<<<, ========, <<<<<<<)
+ keep the required code
+ save the file
+ stage the file
+ commit the changes
+
+Common git merge commands:
+git merge <branch name>
+git status
+
+git merge Architecture- 
+
+create a new branch
+work on the branch and commit
+switch to main branch
+merge the branch
+resolve the merge conflict (if any)
+commit 
+push
+
+
+Real-World Example
+
+Imagine three developers working on an online banking application:
+
+Developer A → Login feature
+Developer B → Dashboard
+Developer C → Loan module
+
+Each developer creates a separate feature branch and works independently. Once a feature is complete, it is reviewed and merged into the main branch. If two developers modify the same part of a file, Git raises a merge conflict, which is resolved before deployment. After successful merging, the CI/CD pipeline builds, tests, and deploys the application.
 
 
 
