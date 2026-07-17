@@ -716,3 +716,32 @@ git pull
 Developer B
 
 This ensures everyone works with the latest version of the project.
+
+
+
+###DAY06###
+UNDO OPERATIONS
+
+Sometimes, mistakes like below may happen:
+1. Editing a wrong file
+2. wrong file got staged
+3. Bug creating work got pushed
+4. Make a wrong commit
+
+To Undo these there are multiple commands. each of these mistakes of different ways to undo them
+
+Which Command Should You Use?
+Situation	                                                 Command
+Modified a file but don't want the changes	             git restore file.txt
+Staged the wrong file	                                     git restore --staged file.txt
+Wrong local commit (not pushed)	                             git reset HEAD~1
+Undo a pushed/shared commit	                             git revert <commit-id>
+See commit history	                                     git log --oneline
+Inspect a commit	                                     git show <commit-id>
+ 
+Reset vs Revert
+Git Reset	                                         Git Revert
+Moves branch backward                              Creates a new undo commit
+Rewrites history	                           Preserves history
+Best before pushing	                           Best after pushing/shared branches
+Risky in team environments	                   Safe for collaboration

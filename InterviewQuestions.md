@@ -288,3 +288,61 @@ Maintain version history
 
 
 
+1. What is the difference between git restore and git reset?
+
+git restore restores files in the working directory (or unstages them with --staged) without changing commit history.
+
+git reset moves the branch pointer to an earlier commit and can rewrite commit history.
+
+2\. What is git revert used for?
+
+
+
+git revert is used to safely undo a previous commit by creating a new commit that reverses its changes, while preserving the existing commit history.
+
+
+
+3\. Why is git revert preferred on shared branches?
+
+
+
+Because it does not rewrite commit history. Other developers can simply pull the new revert commit without dealing with rewritten history or force-push issues.
+
+
+
+4\. How do you remove a file from the staging area?
+
+git restore --staged <file-name>
+
+5\. What is the safest way to undo a pushed commit?
+
+
+
+The safest way is:
+
+
+
+git revert <commit-id>
+
+
+
+because it preserves history and is safe for collaboration.
+
+
+
+📝 Quick Revision Table
+
+Situation	Git Command
+
+Discard unstaged changes	git restore <file>
+
+Remove a file from staging	git restore --staged <file>
+
+Undo the latest local commit (not pushed)	git reset HEAD\~1
+
+Undo a pushed/shared commit	git revert <commit-id>
+
+View commit history	git log --oneline
+
+View details of a commit	git show <commit-id>
+
