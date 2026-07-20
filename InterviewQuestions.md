@@ -346,3 +346,32 @@ View commit history	git log --oneline
 
 View details of a commit	git show <commit-id>
 
+
+###DAy07###
+
+
+
+| Command                       | Purpose                              |
+
+| ----------------------------- | ------------------------------------ |
+
+| `git stash`                   | Save uncommitted changes temporarily |
+
+| `git stash list`              | Show all stashes                     |
+
+| `git stash pop`               | Restore and remove the latest stash  |
+
+| `git stash apply`             | Restore but keep the stash           |
+
+| `git stash drop`              | Delete one stash                     |
+
+| `git stash clear`             | Delete all stashes                   |
+
+| `git stash push -m "message"` | Create a named stash                 |
+
+| `git stash show`              | Show stash summary                   |
+
+| `git stash show -p`           | Show detailed changes                |
+
+
+

@@ -745,3 +745,31 @@ Moves branch backward                              Creates a new undo commit
 Rewrites history	                           Preserves history
 Best before pushing	                           Best after pushing/shared branches
 Risky in team environments	                   Safe for collaboration
+====================================================================================================================================================================================================================================================================================
+
+###DAY-07###
+Stash is a temporary space where we stored the incomplete work that have to be resume after some priortised work. 
+syntax: git stash <file name>
+stash list is a stack that stores all the stash operations.
+git stash (First)
+        │
+        ▼
+stash@{0}
+
+git stash (Second)
+        │
+        ▼
+stash@{0}  ← New
+stash@{1}
+
+git stash (Third)
+        │
+        ▼
+stash@{0}  ← Newest
+stash@{1}
+stash@{2}  ← Oldest
+
+Stash pop means poping up the recent stashed file, here the file releases from the stash list
+Syntax: git stash pop <file name>
+Stash apply is similar to stash pop, but the file remains in the stash list for further usage if requires.
+syntax: git stash apply <file name>
