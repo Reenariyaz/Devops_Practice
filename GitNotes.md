@@ -264,11 +264,11 @@ Branches are used to:
 
 \### View all local branches
 
-
+To know which branch u r working
 
 ```bash
 
-git branch - will say which branch u r working
+git branch 
 
 ```
 
