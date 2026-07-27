@@ -264,11 +264,11 @@ Branches are used to:
 
 \### View all local branches
 
-
+To know which branch u r working
 
 ```bash
 
-git branch - will say which branch u r working
+git branch 
 
 ```
 
@@ -280,19 +280,18 @@ git branch - will say which branch u r working
 
 ```bash
 
-git branch feature-login (only to switch to the already created branch)
-
+git branch feature-login 
 ```
 
 
 
 \### Create and switch to a new branch
 
-
+(to create a branch for the first time)
 
 ```bash
 
-git switch -c feature-login (to create a branch for the first time)
+git switch -c feature-login 
 
 ```
 
