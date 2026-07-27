@@ -573,11 +573,11 @@ CI/CD
 Team Approval
 Merge History
 Difference I Learned
-Local Merge	GitHub Pull Request
-Uses git merge command	Uses Compare & Pull Request
-Happens on local machine	Happens on GitHub
-Mostly for learning/small projects	Used in professional teams
-No review process	Includes code review before merging
+Local Merge	                                 GitHub Pull Request
+Uses git merge command	                  Uses Compare & Pull Request
+Happens on local machine	                Happens on GitHub
+Mostly for learning/small projects	  Used in professional teams
+No review process	                 Includes code review before merging
 
 ###DAY06###
 1. What is a Remote Repository?
@@ -665,7 +665,7 @@ Modify files
      │
 git add
      │
-git commit
+git commitvpp[
      │
 git push
      ▼
