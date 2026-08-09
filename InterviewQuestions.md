@@ -1,4 +1,4 @@
-## Interview Questions:
+  ## Interview Questions:
 
 &#x20;
 
@@ -9,7 +9,6 @@
 
 
 Git solves the problem of tracking changes in source code and files. It helps developers collaborate, maintains the complete history of a project, allows reverting to previous versions if something goes wrong, and prevents code from being overwritten when multiple developers work on the same project.
-
 
 
 Real-Time Example

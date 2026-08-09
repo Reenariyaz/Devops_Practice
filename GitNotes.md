@@ -147,7 +147,7 @@ Whether your branch is up to date
 
 \+ New Lines added
 
-In real time, devs use this comment before each commit
+In real time, devs use this command before each commit
 
 **git add-**  moves the changes from working directory to the staging area
 
