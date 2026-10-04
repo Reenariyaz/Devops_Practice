@@ -174,7 +174,13 @@ if we dont give commit id, git log and git show might works the same.
 
 **git Push-** Pushes the changes (snaped changes) from local to the remote(GITHUB).
 
-
+git diff - says waht changes we had done from the previous commit to current file, IN ML This is extremely useful when experimenting with:
+- preprocessing
+- feature engineering
+- model parameters
+- data transformations
+- API code
+- model-serving code
 
 
 
